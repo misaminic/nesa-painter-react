@@ -1,6 +1,6 @@
 import { Container, CssBaseline } from '@material-ui/core';
 import Head from 'next/head';
-import Navigation from '../components/navigation';
+import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import '../styles/globals.css';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
