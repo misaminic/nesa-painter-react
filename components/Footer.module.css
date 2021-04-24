@@ -1,0 +1,13 @@
+.footer {
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  background: #030303;
+  color: #ccc;
+}
+
+.footer h4 {
+  margin: 0;
+}

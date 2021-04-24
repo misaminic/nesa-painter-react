@@ -1,0 +1,56 @@
+.section {
+  position: relative;
+}
+
+.sectionCenter {
+  display: flex;
+  flex-direction: row;
+  /* overflow: hidden; */
+}
+
+.personImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: ease-in 0.3s;
+  color: transparent;
+  text-shadow: 0 0 0 #fff;
+}
+
+.personImg:focus {
+  outline: none;
+}
+
+.personImg img {
+  width: 50vw;
+  height: 50vh;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 18rem;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  background-color: transparent;
+}
+
+.prev > svg:first-child,
+.next > svg:first-child {
+  font-size: 2.5rem;
+}
+
+.next > svg:first-child {
+  transform: rotate(180deg);
+}
+
+.prev {
+  left: 10rem;
+}
+
+.next {
+  right: 10rem;
+}
