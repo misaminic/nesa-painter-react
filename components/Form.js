@@ -1,5 +1,5 @@
 import { Container } from '@material-ui/core';
-import classes from './form.module.css';
+import classes from './Form.module.css';
 
 const Form = () => {
   return (
