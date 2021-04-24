@@ -56,6 +56,7 @@ const Slider = () => {
           }
 
           .nextSlide {
+            opacity: 0;
             transform: translateX(100%);
           }
         `}</style>
