@@ -5,7 +5,7 @@
 .sectionCenter {
   display: flex;
   flex-direction: row;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .personImg {
