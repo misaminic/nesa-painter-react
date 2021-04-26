@@ -1,19 +1,23 @@
 const pictures = [
   {
-    id: 1,
-    image: './images/1.jpg',
+    pictureId: 1,
+    img: './images/1.jpg',
+    name: 'misa',
   },
   {
-    id: 2,
-    image: './images/2.jpg',
+    pictureId: 2,
+    img: './images/2.jpg',
+    name: 'misa',
   },
   {
-    id: 3,
-    image: './images/3.png',
+    pictureId: 3,
+    img: './images/3.png',
+    name: 'misa',
   },
   {
-    id: 4,
-    image: './images/4.png',
+    pictureId: 4,
+    img: './images/4.png',
+    name: 'misa',
   },
 ];
 

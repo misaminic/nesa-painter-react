@@ -1,7 +1,6 @@
 import PictureItem from './PictureItem';
 import classes from './PicturesList.module.css';
 import data from '../data';
-console.log(data);
 
 const PicturesList = () => {
   return (

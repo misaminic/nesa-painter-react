@@ -4,7 +4,17 @@
 
 .sectionCenter {
   display: flex;
-  /* max-height: 500px; */
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.sectionCenter h3,
+.sectionCenter p {
+  color: #030303;
+}
+
+.sectionCenter p:last-child {
+  padding-bottom: 3rem;
 }
 
 .personImg {
@@ -24,7 +34,8 @@
 }
 
 .personImg img {
-  height: 50vh;
+  height: 80vh;
+  object-fit: contain;
 }
 
 .prev,

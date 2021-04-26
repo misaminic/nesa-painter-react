@@ -5,9 +5,6 @@ import dataSlugs from '../../../dataSlugs';
 
 const workByPeriod = () => {
   const router = useRouter();
-
-  //   console.log(dataSlugs);
-  //   console.log(router.query.id);
   const id = router.query.id;
 
   const [work, setWork] = useState([dataSlugs]);
@@ -30,7 +27,9 @@ const workByPeriod = () => {
           {work.images
             ? work.images.map((item, index) => (
                 <Link key={index} href={`/work/${id}/${item.pictureId}`}>
-                  <img src={item.img} className="picture-container" />
+                  <div className="picture-wrapper">
+                    <img src={item.img} className="picture-container" />
+                  </div>
                 </Link>
               ))
             : null}
@@ -39,10 +38,16 @@ const workByPeriod = () => {
       <style jsx>{`
         .picture-section-container {
           display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-columns: 1fr 1fr;
           gap: 2rem 2rem;
           margin-top: 2rem;
           margin-bottom: 2rem;
+          color: transparent;
+          text-shadow: 0 0 0 #fff;
+        }
+
+        .picture:focus {
+          outline: none;
         }
         .picture-container {
           width: 100%;

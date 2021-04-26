@@ -4,19 +4,27 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import '../styles/globals.css';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { useState } from 'react';
+import Sidebar from '../components/Sidebar';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#23ce6b',
+      main: '#030303',
     },
     secondary: {
-      main: '#e23',
+      main: '#fafafa',
     },
   },
 });
 
 function MyApp({ Component, pageProps }) {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <Head>
@@ -35,6 +43,7 @@ function MyApp({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <Container maxWidth="xl" className="container">
           <Navigation />
+          <Sidebar props={(isOpen, toggleSidebar)} />
           <Component {...pageProps} />
         </Container>
         <Footer />

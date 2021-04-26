@@ -1,16 +1,33 @@
 import { useState, useEffect, useRef } from 'react';
+// import { useHistory } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import classes from './Slider.module.css';
-import data from '../data';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
-const Slider = () => {
-  const [pictures, setPictures] = useState(data);
+const Slider = ({ data }) => {
+  const [pictures, setPictures] = useState([data]);
+  const [singlePicture, setSinglePicture] = useState([]);
   const [index, setIndex] = useState(0);
   const [sliderHeight, setSliderHeight] = useState(0);
 
-  console.log(sliderHeight);
+  const router = useRouter();
+  let id = parseInt(router.query.pictureId);
+
+  console.log(id);
 
   const sliderPictureHeight = useRef(null);
+
+  useEffect(() => {
+    if (data) {
+      const tempPicture = data.find((item) => {
+        return item.pictureId == id;
+      });
+      setSinglePicture(tempPicture);
+    }
+  });
+
+  console.log(singlePicture);
+  console.log(id);
 
   useEffect(() => {
     if (sliderPictureHeight) {
@@ -21,6 +38,7 @@ const Slider = () => {
   }, [sliderPictureHeight]);
 
   useEffect(() => {
+    setPictures(data);
     const lastIndex = pictures.length - 1;
     if (index < 0) {
       setIndex(lastIndex);
@@ -34,7 +52,7 @@ const Slider = () => {
     <section className={classes.section} style={{ height: sliderHeight }}>
       <div className={classes.sectionCenter}>
         {pictures.map((picture, pictureIndex) => {
-          const { id, image } = picture;
+          const { pictureId, img, title, technique, size, year } = picture;
           let position = 'nextSlide';
           if (pictureIndex === index) {
             position = 'activeSlide';
@@ -46,13 +64,19 @@ const Slider = () => {
             position = 'lastSlide';
           }
           return (
-            <article
-              key={id}
-              className={`${classes.personImg} ${position}`}
-              style={{ height: sliderHeight }}
-            >
-              <img src={image} alt={id} ref={sliderPictureHeight} />
-            </article>
+            <>
+              <article
+                key={pictureId}
+                className={`${classes.personImg} ${position}`}
+                style={{ height: sliderHeight }}
+              >
+                <img src={img} alt={pictureId} ref={sliderPictureHeight} />
+                <h3>{title}</h3>
+                <p>{technique}</p>
+                <p>{size}</p>
+                <p>{year}</p>
+              </article>
+            </>
           );
         })}
         <button className={classes.prev} onClick={() => setIndex(index - 1)}>
