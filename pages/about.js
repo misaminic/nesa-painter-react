@@ -54,22 +54,16 @@ const About = () => {
         <style jsx>
           {`
             .bio-container {
+              display: flex;
               margin-top: 3rem;
-              display: grid;
-              grid-template-columns: 1fr 2fr;
-            }
-
-            .image-wrapper {
-              width: 100%;
-              height: 100%;
             }
             .image-wrapper img {
               width: 100%;
-              height: 100%;
+              height: auto;
             }
             .bio-info {
+              max-width: 1000px;
               width: 100%;
-              height: 100%;
               margin-left: 1rem;
               padding-top: 1rem;
               padding-left: 3rem;
@@ -85,6 +79,11 @@ const About = () => {
             }
             .bio-info > p {
               text-align: justify;
+            }
+            @media (max-width: 1600px) {
+              .image-wrapper {
+                align-self: center;
+              }
             }
           `}
         </style>

@@ -4,8 +4,7 @@
 
 .sectionCenter {
   display: flex;
-  flex-direction: row;
-  overflow: hidden;
+  /* max-height: 500px; */
 }
 
 .personImg {
@@ -25,17 +24,17 @@
 }
 
 .personImg img {
-  width: 50vw;
   height: 50vh;
 }
 
 .prev,
 .next {
   position: absolute;
-  top: 18rem;
+  top: 50%;
   border: none;
   font-family: 'Roboto', sans-serif;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .prev > svg:first-child,
@@ -48,9 +47,9 @@
 }
 
 .prev {
-  left: 10rem;
+  left: 10%;
 }
 
 .next {
-  right: 10rem;
+  right: 10%;
 }

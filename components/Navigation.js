@@ -8,7 +8,7 @@ const Navigation = () => {
       <nav className={classes.mainNavigation}>
         <ul className={classes.navList}>
           <li>
-            <Link href="/works">works</Link>
+            <Link href="/work">work</Link>
           </li>
           <li>
             <Link href="/exhibitions">exhibitions</Link>

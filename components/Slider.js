@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import classes from './Slider.module.css';
 import data from '../data';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
@@ -6,7 +6,19 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 const Slider = () => {
   const [pictures, setPictures] = useState(data);
   const [index, setIndex] = useState(0);
-  console.log(index);
+  const [sliderHeight, setSliderHeight] = useState(0);
+
+  console.log(sliderHeight);
+
+  const sliderPictureHeight = useRef(null);
+
+  useEffect(() => {
+    if (sliderPictureHeight) {
+      setSliderHeight(sliderPictureHeight.current.offsetHeight);
+    } else {
+      return 0;
+    }
+  }, [sliderPictureHeight]);
 
   useEffect(() => {
     const lastIndex = pictures.length - 1;
@@ -19,7 +31,7 @@ const Slider = () => {
   }, [index, pictures]);
 
   return (
-    <section className={classes.section}>
+    <section className={classes.section} style={{ height: sliderHeight }}>
       <div className={classes.sectionCenter}>
         {pictures.map((picture, pictureIndex) => {
           const { id, image } = picture;
@@ -34,8 +46,12 @@ const Slider = () => {
             position = 'lastSlide';
           }
           return (
-            <article key={id} className={`${classes.personImg} ${position}`}>
-              <img src={image} alt={id} />
+            <article
+              key={id}
+              className={`${classes.personImg} ${position}`}
+              style={{ height: sliderHeight }}
+            >
+              <img src={image} alt={id} ref={sliderPictureHeight} />
             </article>
           );
         })}
@@ -56,7 +72,7 @@ const Slider = () => {
           }
 
           .nextSlide {
-            opacity: 0;
+            overflow: hidden;
             transform: translateX(100%);
           }
         `}</style>

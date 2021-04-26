@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <Container maxWidth className="container">
+        <Container maxWidth="xl" className="container">
           <Navigation />
           <Component {...pageProps} />
         </Container>
