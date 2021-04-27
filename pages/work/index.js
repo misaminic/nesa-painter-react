@@ -1,26 +1,40 @@
 import Link from 'next/link';
+import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 
+const useStyles = makeStyles((theme) => ({
+  button: {
+    padding: '5rem',
+    marginRight: '1rem',
+    [theme.breakpoints.down('sm')]: {
+      padding: '0',
+      marginRight: '0',
+    },
+  },
+}));
+
 const Work = () => {
+  const classes = useStyles();
+
   return (
     <div className="work-container">
       <div className="worksByYears">
         <Link href="/work/2016-2017">
           <Button
+            className={classes.button}
             variant="contained"
             color="primary"
             href="#contained-buttons"
-            style={{ marginRight: '0.5rem', padding: '5rem' }}
           >
             <span>2016 - 2017</span>
           </Button>
         </Link>
         <Link href="/work/2017-2019">
           <Button
+            className={classes.button}
             variant="contained"
             color="primary"
             href="#contained-buttons"
-            style={{ marginRight: '0.5rem', padding: '5rem' }}
           >
             <span>2017 - 2019</span>
           </Button>
@@ -28,12 +42,12 @@ const Work = () => {
 
         <Link href="/work/2020-">
           <Button
+            className={classes.button}
             variant="contained"
             color="primary"
             href="#contained-buttons"
-            style={{ marginRight: '0.5rem', padding: '5rem' }}
           >
-            <span>2020 -</span>
+            <span>2020 - 2021</span>
           </Button>
         </Link>
       </div>
@@ -58,6 +72,10 @@ const Work = () => {
         }
         .worksByYears:focus {
           outline: none;
+        }
+
+        .MuiButton-root {
+          margin-right: 1rem !important;
         }
       `}</style>
     </div>
