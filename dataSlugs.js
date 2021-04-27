@@ -28,7 +28,7 @@ const dataSlugs = [
       },
       {
         pictureId: 2,
-        img: '../../images/2.jpg',
+        img: '../../images/13.png',
         title: 'Untitled',
         technique: 'oil on canvas',
         size: '30 x 35',
@@ -158,7 +158,7 @@ const dataSlugs = [
       },
       {
         pictureId: 9,
-        img: '../../images/11.png',
+        img: '../../images/13.png',
         title: 'Untitled',
         technique: 'acrylic and monoprint on canvas',
         size: '71 x 53.5',

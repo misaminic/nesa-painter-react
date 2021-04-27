@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <Container maxWidth="xl" className="container">
           <Navigation />
-          <Sidebar props={(isOpen, toggleSidebar)} />
+          {/* <Sidebar props={(isOpen, toggleSidebar)} /> */}
           <Component {...pageProps} />
         </Container>
         <Footer />

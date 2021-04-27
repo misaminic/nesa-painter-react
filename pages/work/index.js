@@ -5,36 +5,37 @@ const Work = () => {
   return (
     <div className="work-container">
       <div className="worksByYears">
-        <Button
-          variant="contained"
-          color="primary"
-          href="#contained-buttons"
-          style={{ marginRight: '0.5rem', padding: '5rem' }}
-        >
-          <Link href="/work/2016-2017">
+        <Link href="/work/2016-2017">
+          <Button
+            variant="contained"
+            color="primary"
+            href="#contained-buttons"
+            style={{ marginRight: '0.5rem', padding: '5rem' }}
+          >
             <span>2016 - 2017</span>
-          </Link>
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          href="#contained-buttons"
-          style={{ marginRight: '0.5rem', padding: '5rem' }}
-        >
-          <Link href="/work/2017-2019">
+          </Button>
+        </Link>
+        <Link href="/work/2017-2019">
+          <Button
+            variant="contained"
+            color="primary"
+            href="#contained-buttons"
+            style={{ marginRight: '0.5rem', padding: '5rem' }}
+          >
             <span>2017 - 2019</span>
-          </Link>
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          href="#contained-buttons"
-          style={{ marginRight: '0.5rem', padding: '5rem' }}
-        >
-          <Link href="/work/2020-">
+          </Button>
+        </Link>
+
+        <Link href="/work/2020-">
+          <Button
+            variant="contained"
+            color="primary"
+            href="#contained-buttons"
+            style={{ marginRight: '0.5rem', padding: '5rem' }}
+          >
             <span>2020 -</span>
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       </div>
 
       <style jsx>{`

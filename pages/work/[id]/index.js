@@ -26,11 +26,11 @@ const workByPeriod = () => {
         <section className="picture-section-container">
           {work.images
             ? work.images.map((item, index) => (
-                <Link key={index} href={`/work/${id}/${item.pictureId}`}>
-                  <div className="picture-wrapper">
+                <div className="picture-wrapper">
+                  <Link key={index} href={`/work/${id}/${item.pictureId}`}>
                     <img src={item.img} className="picture-container" />
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               ))
             : null}
         </section>
@@ -46,11 +46,15 @@ const workByPeriod = () => {
           text-shadow: 0 0 0 #fff;
         }
 
-        .picture:focus {
-          outline: none;
+        .picture-wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
         }
         .picture-container {
           width: 100%;
+          max-width: 30rem;
           height: auto;
           cursor: pointer;
         }

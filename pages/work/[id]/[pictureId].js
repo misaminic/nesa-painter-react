@@ -61,6 +61,7 @@ const SinglePicture = () => {
       </section>
       <style jsx>{`
         position: relative;
+        height: 100vh;
 
         .section-position {
           display: flex;
