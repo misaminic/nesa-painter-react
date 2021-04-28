@@ -22,6 +22,9 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       <div className="side-container">
         <ul className={isOpen ? 'sidebar-links' : null}>
           <li onClick={() => toggleSidebar()}>
+            <Link href="/">HOME</Link>
+          </li>
+          <li onClick={() => toggleSidebar()}>
             <Link href="/work">WORK</Link>
           </li>
           <li onClick={() => toggleSidebar()}>

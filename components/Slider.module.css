@@ -49,6 +49,11 @@
   cursor: pointer;
 }
 
+.prev:focus,
+.next:focus {
+  outline: none;
+}
+
 .prev > svg:first-child,
 .next > svg:first-child {
   font-size: 2.5rem;
@@ -64,4 +69,29 @@
 
 .next {
   right: 10%;
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    height: 100vh !important;
+  }
+  .personImg {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+  }
+  .personImg img {
+    object-fit: cover;
+  }
+  .prev,
+  .next {
+    top: auto;
+    bottom: 5rem;
+  }
+  .prev {
+    left: 30%;
+  }
+  .next {
+    right: 30%;
+  }
 }

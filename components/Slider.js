@@ -9,13 +9,14 @@ const Slider = ({ data }) => {
   const [singlePicture, setSinglePicture] = useState([]);
   const [index, setIndex] = useState(0);
   const [sliderHeight, setSliderHeight] = useState(0);
+  const [sliderWidth, setSliderWidth] = useState(0);
 
   const router = useRouter();
   let id = parseInt(router.query.pictureId);
 
   console.log(id);
 
-  const sliderPictureHeight = useRef(null);
+  const sliderPicture = useRef(null);
 
   useEffect(() => {
     if (data) {
@@ -30,12 +31,15 @@ const Slider = ({ data }) => {
   console.log(id);
 
   useEffect(() => {
-    if (sliderPictureHeight) {
-      setSliderHeight(sliderPictureHeight.current.offsetHeight);
+    if (sliderPicture) {
+      setSliderHeight(sliderPicture.current.offsetHeight);
+    }
+    if (sliderPicture.offsetWidth > 330) {
+      setSliderWidth('adjust-width');
     } else {
       return 0;
     }
-  }, [sliderPictureHeight]);
+  }, [sliderPicture]);
 
   useEffect(() => {
     setPictures(data);
@@ -70,7 +74,12 @@ const Slider = ({ data }) => {
                 className={`${classes.personImg} ${position}`}
                 style={{ height: sliderHeight }}
               >
-                <img src={img} alt={pictureId} ref={sliderPictureHeight} />
+                <img
+                  src={img}
+                  alt={pictureId}
+                  ref={sliderPicture}
+                  className={sliderWidth}
+                />
                 <h3>{title}</h3>
                 <p>{technique}</p>
                 <p>{size}</p>

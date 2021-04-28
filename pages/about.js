@@ -3,7 +3,7 @@ const About = () => {
     <>
       <div className="bio-container">
         <div className="image-wrapper">
-          <img src="./images/nebojsa.jpg" />
+          <img src="./images/nebojsa.png" />
         </div>
         <div className="bio-info">
           <h1>Biography</h1>
@@ -55,17 +55,20 @@ const About = () => {
           {`
             .bio-container {
               display: flex;
+              justify-content: center;
               margin-top: 3rem;
             }
             .image-wrapper {
               display: flex;
               justify-content: center;
-              align-items: center;
+              align-items: flex-end;
             }
 
             .image-wrapper img {
               max-width: 40rem;
               height: auto;
+              margin-bottom: 1.5rem;
+
             }
             .bio-info {
               max-width: 1000px;
@@ -95,6 +98,16 @@ const About = () => {
               .bio-container {
                 flex-direction: column-reverse;
               }
+            }
+            @media (max-width: 768px) {
+              .bio-info {
+                margin: 0;
+                padding: 0;
+                line-height: 1.7rem;
+              }
+
+              .image-wrapper img {
+                max-width: 10rem;
             }
           `}
         </style>

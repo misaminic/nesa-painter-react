@@ -7,7 +7,8 @@ const useStyles = makeStyles((theme) => ({
     padding: '5rem',
     marginRight: '1rem',
     [theme.breakpoints.down('sm')]: {
-      padding: '0',
+      padding: '1.5rem',
+      marginBottom: '1.5rem',
       marginRight: '0',
     },
   },
@@ -18,7 +19,7 @@ const Work = () => {
 
   return (
     <div className="work-container">
-      <div className="worksByYears">
+      <div className="worksByYears mobile">
         <Link href="/work/2016-2017">
           <Button
             className={classes.button}
@@ -76,6 +77,13 @@ const Work = () => {
 
         .MuiButton-root {
           margin-right: 1rem !important;
+        }
+
+        @media screen and (max-width: 960px) {
+          .mobile {
+            display: flex;
+            flex-direction: column;
+          }
         }
       `}</style>
     </div>
