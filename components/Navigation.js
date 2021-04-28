@@ -1,8 +1,20 @@
 import Link from 'next/link';
 import Typography from '@material-ui/core/Typography';
 import classes from './Navigation.module.css';
+import MenuIcon from '@material-ui/icons/Menu';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  icon: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '2rem',
+    },
+  },
+}));
 
 const Navigation = () => {
+  const classes = useStyles();
+
   return (
     <>
       <nav className={classes.mainNavigation}>
@@ -26,6 +38,26 @@ const Navigation = () => {
           </li>
         </ul>
       </nav>
+      <button type="button" className="toggle-btn">
+        <MenuIcon className={classes.icon} />
+      </button>
+      <style jsx>
+        {`
+          .toggle-btn {
+            display: none;
+          }
+
+          @media screen and (max-width: 768px) {
+            .toggle-btn {
+              display: block;
+              margin-top: 1.5rem;
+              background: transparent;
+              border-color: transparent;
+              cursor: pointer;
+            }
+          }
+        `}
+      </style>
     </>
   );
 };

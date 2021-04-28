@@ -32,3 +32,9 @@
   margin-bottom: 0.3rem;
   list-style: none;
 }
+
+@media screen and (max-width: 768px) {
+  .mainNavigation {
+    display: none;
+  }
+}
