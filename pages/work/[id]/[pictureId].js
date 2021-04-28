@@ -12,7 +12,7 @@ const SinglePicture = () => {
 
   const [picture, setPicture] = useState(dataSlugs);
   const [showPicture, setShowPicture] = useState(false);
-  const [nextPicture, setNextPicture] = useState(dataSlugs);
+  const [nextPictures, setNextPictures] = useState(dataSlugs);
   const [showSlider, setShowSlider] = useState(true);
 
   useEffect(() => {
@@ -37,19 +37,25 @@ const SinglePicture = () => {
 
   useEffect(() => {
     if (showSlider) {
-      const tempPicture = dataSlugs.find((item) => {
-        return item.id == productionYear ? setNextPicture(item.images) : null;
+      let tempPictures = dataSlugs.find((item) => {
+        return item.id === productionYear ? item.images : null;
       });
-    }
-  });
+      const { images } = tempPictures;
+      const clickedPicture = images.find((item) => item.pictureId == id);
 
-  console.log(nextPicture);
+      const newCollectionToShow = [clickedPicture, ...images];
+
+      setNextPictures(newCollectionToShow);
+    }
+  }, [id]);
+
+  console.log(nextPictures);
 
   return (
     <div>
       <section className="picture-container">
         <article>
-          <Slider data={nextPicture} />
+          <Slider data={nextPictures} />
         </article>
 
         {/* <button className="prev" onClick={clickHandler}>

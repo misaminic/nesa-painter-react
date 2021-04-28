@@ -18,17 +18,15 @@ const Slider = ({ data }) => {
 
   const sliderPicture = useRef(null);
 
-  useEffect(() => {
-    if (data) {
-      const tempPicture = data.find((item) => {
-        return item.pictureId == id;
-      });
-      setSinglePicture(tempPicture);
-    }
-  });
-
-  console.log(singlePicture);
-  console.log(id);
+  // useEffect(() => {
+  //   if (data) {
+  //     let tempPicture = data.find((item) => {
+  //       return item.pictureId == id;
+  //     });
+  //     const clickedPicture = { tempPicture, ...data };
+  //     setSinglePicture(clickedPicture);
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (sliderPicture) {
