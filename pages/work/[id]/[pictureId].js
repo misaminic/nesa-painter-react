@@ -42,9 +42,8 @@ const SinglePicture = () => {
       });
       const { images } = tempPictures;
       const clickedPicture = images.find((item) => item.pictureId == id);
-
-      const newCollectionToShow = [clickedPicture, ...images];
-
+      const removedDuplicate = images.filter((item) => item.pictureId !== id);
+      const newCollectionToShow = [clickedPicture, ...removedDuplicate];
       setNextPictures(newCollectionToShow);
     }
   }, [id]);
@@ -57,13 +56,6 @@ const SinglePicture = () => {
         <article>
           <Slider data={nextPictures} />
         </article>
-
-        {/* <button className="prev" onClick={clickHandler}>
-          <ArrowBackIosIcon />
-        </button>
-        <button className="next" onClick={clickHandler}>
-          <ArrowBackIosIcon />
-        </button> */}
       </section>
       <style jsx>{`
         position: relative;

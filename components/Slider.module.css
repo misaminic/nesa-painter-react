@@ -83,6 +83,10 @@
   .personImg img {
     object-fit: cover;
   }
+  .personImg h3,
+  .personImg p {
+    margin: 0.2rem;
+  }
   .prev,
   .next {
     top: auto;

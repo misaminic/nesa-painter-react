@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-// import { useHistory } from 'react-router-dom';
 import { useRouter } from 'next/router';
 import classes from './Slider.module.css';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
@@ -13,8 +12,6 @@ const Slider = ({ data }) => {
 
   const router = useRouter();
   let id = parseInt(router.query.pictureId);
-
-  console.log(id);
 
   const sliderPicture = useRef(null);
 
