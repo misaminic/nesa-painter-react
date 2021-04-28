@@ -2,17 +2,17 @@ import Link from 'next/link';
 import Typography from '@material-ui/core/Typography';
 import classes from './Navigation.module.css';
 import MenuIcon from '@material-ui/icons/Menu';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
-  icon: {
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '2rem',
-    },
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   icon: {
+//     [theme.breakpoints.down('sm')]: {
+//       fontSize: '2rem',
+//     },
+//   },
+// }));
 
-const Navigation = () => {
+const Navigation = ({ toggleSidebar }) => {
   // const classes = useStyles();
 
   return (
@@ -38,7 +38,11 @@ const Navigation = () => {
           </li>
         </ul>
       </nav>
-      <button type="button" className="toggle-btn">
+      <button
+        type="button"
+        className="toggle-btn"
+        onClick={() => toggleSidebar()}
+      >
         <MenuIcon className={classes.icon} />
       </button>
       <style jsx>

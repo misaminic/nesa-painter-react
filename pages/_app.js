@@ -19,7 +19,7 @@ const theme = createMuiTheme({
 });
 
 function MyApp({ Component, pageProps }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -42,8 +42,8 @@ function MyApp({ Component, pageProps }) {
       <CssBaseline />
       <ThemeProvider theme={theme}>
         <Container maxWidth="false" className="container">
-          <Navigation />
-          <Sidebar props={(isOpen, toggleSidebar)} />
+          <Navigation toggleSidebar={toggleSidebar} />
+          <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
           <Component {...pageProps} />
         </Container>
         <Footer />

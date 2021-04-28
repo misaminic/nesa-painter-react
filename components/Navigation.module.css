@@ -35,6 +35,10 @@
 
 @media screen and (max-width: 768px) {
   .mainNavigation {
-    /* display: none; */
+    display: none;
+  }
+
+  .icon {
+    font-size: 2rem !important;
   }
 }
