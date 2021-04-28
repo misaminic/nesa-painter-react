@@ -98,4 +98,14 @@
   .next {
     right: 30%;
   }
+
+  .pictureInfo {
+    position: absolute;
+    top: 92vh;
+    left: 1.2rem;
+    display: grid;
+    grid-template-columns: 3fr 3fr 1fr;
+    grid-template-rows: 1fr;
+    place-items: stretch;
+  }
 }

@@ -75,10 +75,12 @@ const Slider = ({ data }) => {
                   ref={sliderPicture}
                   className={sliderWidth}
                 />
-                <h3>{title}</h3>
-                <p>{technique}</p>
-                <p>{size}</p>
-                <p>{year}</p>
+                <div className={classes.pictureInfo}>
+                  {/* <h3>{title}</h3> */}
+                  <p>{technique}</p>
+                  <p>{size}</p>
+                  <p>{year}</p>
+                </div>
               </article>
             </>
           );
@@ -89,6 +91,7 @@ const Slider = ({ data }) => {
         <button className={classes.next} onClick={() => setIndex(index + 1)}>
           <ArrowBackIosIcon />
         </button>
+
         <style jsx>{`
           .activeSlide {
             opacity: 1;
