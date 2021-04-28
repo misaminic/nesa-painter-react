@@ -80,9 +80,9 @@
     flex-direction: column;
     /* justify-content: center; */
   }
-  .personImg img {
+  /* .personImg img {
     object-fit: cover;
-  }
+  } */
   .personImg h3,
   .personImg p {
     margin: 0.2rem;
