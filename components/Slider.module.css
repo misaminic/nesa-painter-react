@@ -1,4 +1,5 @@
 .section {
+  height: 80vh;
   position: relative;
   overflow: hidden;
 }
@@ -28,6 +29,8 @@
   transition: ease-in 0.3s;
   color: transparent;
   text-shadow: 0 0 0 #fff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .personImg:focus {
@@ -71,32 +74,64 @@
   right: 10%;
 }
 
+@media screen and (min-width: 768px) {
+  .mobilePrev,
+  .mobileNext {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .section {
-    height: 100vh !important;
+    height: calc(100vh - 10.5rem) !important;
   }
   .personImg {
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
   }
-  /* .personImg img {
-    object-fit: cover;
-  } */
+  .personImg img {
+    width: 100vw;
+  }
   .personImg h3,
   .personImg p {
     margin: 0.2rem;
   }
+
   .prev,
   .next {
+    display: none;
+  }
+
+  .mobilePrev,
+  .mobileNext {
     top: auto;
     bottom: 5rem;
+    position: absolute;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    background-color: transparent;
+    cursor: pointer;
   }
-  .prev {
+  .mobilePrev {
     left: 30%;
   }
-  .next {
+  .mobileNext {
     right: 30%;
+  }
+
+  .mobileNext > svg:first-child {
+    transform: rotate(180deg);
+  }
+
+  .mobilePrev:focus,
+  .mobileNext:focus {
+    outline: none;
+  }
+
+  .mobilePrev > svg:first-child,
+  .mobileNext > svg:first-child {
+    font-size: 2.5rem;
   }
 
   .pictureInfo {

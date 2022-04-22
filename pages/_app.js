@@ -1,3 +1,4 @@
+import { AppWrapper } from '../context/state';
 import { Container, CssBaseline } from '@material-ui/core';
 import Head from 'next/head';
 import Navigation from '../components/Navigation';
@@ -38,15 +39,22 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+        ></link>
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
       </Head>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <Container maxWidth="false" className="container">
-          <Navigation toggleSidebar={toggleSidebar} />
-          <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-          <Component {...pageProps} />
-        </Container>
-        <Footer />
+        <AppWrapper>
+          <Container maxWidth="false" className="container">
+            <Navigation toggleSidebar={toggleSidebar} />
+            <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
+            <Component {...pageProps} />
+          </Container>
+          <Footer />
+        </AppWrapper>
       </ThemeProvider>
     </>
   );

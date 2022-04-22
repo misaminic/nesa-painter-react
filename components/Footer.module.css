@@ -12,8 +12,8 @@
   margin: 0;
 }
 
-/* @media screen and (max-width: 960px) {
-  .footer {
-    height: 4.5rem;
+@media screen and (max-width: 768px) {
+  .footerSinglePic {
+    display: none;
   }
-} */
+}

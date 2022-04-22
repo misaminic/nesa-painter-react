@@ -10,7 +10,7 @@ const Form = () => {
           method="POST"
           className={classes.contactForm}
         >
-          <h3>Get In Touch</h3>
+          <h3 className="underline">GET IN TOUCH</h3>
           <article className={classes.formGroup}>
             <div>
               <input

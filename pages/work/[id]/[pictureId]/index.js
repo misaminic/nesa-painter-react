@@ -1,19 +1,25 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import dataSlugs from '../../../dataSlugs';
+import dataSlugs from '../../../../dataSlugs';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import Slider from '../../../components/Slider';
+import Slider from '../../../../components/Slider';
+import { useAppContext } from '../../../../context/state';
 
 const SinglePicture = () => {
   const router = useRouter();
+  const {
+    showFullSizePicture,
+    getNextPictures,
+    nextPictures,
+  } = useAppContext();
 
   const id = parseInt(router.query.pictureId);
   const productionYear = router.query.id;
 
   const [picture, setPicture] = useState(dataSlugs);
   const [showPicture, setShowPicture] = useState(false);
-  const [nextPictures, setNextPictures] = useState(dataSlugs);
   const [showSlider, setShowSlider] = useState(true);
+  const [defaultPictures, setDefaultPictures] = useState(dataSlugs);
 
   useEffect(() => {
     if (id) {
@@ -38,23 +44,22 @@ const SinglePicture = () => {
   useEffect(() => {
     if (showSlider) {
       let tempPictures = dataSlugs.find((item) => {
-        return item.id === productionYear ? item.images : null;
+>       return item.id === productionYear ? item.images : null;
       });
       const { images } = tempPictures;
       const clickedPicture = images.find((item) => item.pictureId == id);
       const removedDuplicate = images.filter((item) => item.pictureId !== id);
       const newCollectionToShow = [clickedPicture, ...removedDuplicate];
-      setNextPictures(newCollectionToShow);
+      getNextPictures(newCollectionToShow);
+      setDefaultPictures(newCollectionToShow);
     }
   }, [id]);
-
-  console.log(nextPictures);
 
   return (
     <div>
       <section className="picture-container">
         <article>
-          <Slider data={nextPictures} />
+          <Slider data={defaultPictures} />
         </article>
       </section>
       <style jsx>{`

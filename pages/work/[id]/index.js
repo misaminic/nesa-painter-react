@@ -1,38 +1,50 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import dataSlugs from '../../../dataSlugs';
+// import dataSlugs from '../../../dataSlugs';
 
-const workByPeriod = () => {
+const workByPeriod = ({ data }) => {
+  console.log(data);
   const router = useRouter();
   const id = router.query.id;
 
-  const [work, setWork] = useState([dataSlugs]);
+  const [work, setWork] = useState(data);
 
   useEffect(() => {
-    if (id) {
-      const currentWork = dataSlugs.find((item) => {
-        return item.id === id;
-      });
-      setWork(currentWork);
+    if (data) {
+      // const currentWork = data.find((item) => {
+      //   return item.id === id;
+      // });
+      setWork(data);
     } else {
       return [];
     }
-  }, [id]);
+  }, [data]);
+
+  console.log(work[0].images[0].image[0].url);
 
   return (
     <div>
       <div>
         <section className="picture-section-container">
-          {work.images
-            ? work.images.map((item, index) => (
-                <div className="picture-wrapper">
-                  <Link key={index} href={`/work/${id}/${item.pictureId}`}>
-                    <img src={item.img} className="picture-container" />
-                  </Link>
-                </div>
-              ))
-            : null}
+          {work.map((item, index) => {
+            return item.images.map((item) => {
+              return item.image.map((item) => {
+                console.log(item.hash);
+                return (
+                  <div className="picture-wrapper">
+                    <Link key={index} href={`/work/${id}/${item.id}`}>
+                      <img
+                        key={index}
+                        src={item.url}
+                        className="picture-container"
+                      />
+                    </Link>
+                  </div>
+                );
+              });
+            });
+          })}
         </section>
       </div>
       <style jsx>{`
@@ -62,5 +74,36 @@ const workByPeriod = () => {
     </div>
   );
 };
+
+export async function getStaticProps(context) {
+  console.log(context);
+  const { params } = context;
+
+  const yearId = params.id;
+
+  const res = await fetch(
+    `${process.env.STRAPI_API_URL}${`/paint-years?year=${yearId}`}`
+  );
+  const data = await res.json();
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
+export async function getStaticPaths() {
+  const res = await fetch(`${process.env.STRAPI_API_URL}${'/paint-years'}`);
+  const data = await res.json();
+
+  console.log(data);
+
+  const paths = data.map((item) => ({
+    params: { id: item.year },
+  }));
+
+  return { paths, fallback: false };
+}
 
 export default workByPeriod;

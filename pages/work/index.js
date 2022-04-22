@@ -20,7 +20,7 @@ const Work = () => {
   return (
     <div className="work-container">
       <div className="worksByYears mobile">
-        <Link href="/work/2016-2017">
+        <Link href="/work/2016">
           <Button
             className={classes.button}
             variant="contained"
@@ -30,7 +30,7 @@ const Work = () => {
             <span>2016 - 2017</span>
           </Button>
         </Link>
-        <Link href="/work/2017-2019">
+        <Link href="/work/2019">
           <Button
             className={classes.button}
             variant="contained"
@@ -41,7 +41,7 @@ const Work = () => {
           </Button>
         </Link>
 
-        <Link href="/work/2020-">
+        <Link href="/work/2020">
           <Button
             className={classes.button}
             variant="contained"

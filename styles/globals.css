@@ -1,3 +1,10 @@
+:root {
+  --primary-color: #231f20;
+  --secondary-color: #fff;
+  --third-color: rgb(252, 227, 115);
+  --fourth-color: #caa498;
+}
+
 html,
 body {
   padding: 0;
@@ -7,13 +14,27 @@ body {
   scroll-behavior: smooth;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 2.4rem;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 2.4rem;
 }
 
 .container {
@@ -22,6 +43,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 !important;
   /* overflow-x: hidden; */
 }
 
@@ -142,11 +164,166 @@ a {
   }
 }
 
-/* @media screen and (max-width: 960px) {
-  .container {
-    min-height: calc(100vh - 5rem);
-  }
+.main-carousel {
+  margin-top: 4rem;
+}
+
+.carousel-cell {
+  width: 30%;
+  height: 450px;
+  display: flex;
+  place-content: center;
+  align-items: center;
+  transition: box-shadow 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  background-color: #9ad18b;
+  margin-right: 20px;
+}
+
+.carousel-cell:hover {
+  box-shadow: inset 0 0 0 1.6vw currentColor;
+}
+
+.carousel-image-wrapper {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  place-content: center;
+}
+
+.carousel-cell img {
+  object-fit: none;
+  width: inherit;
+  width: -webkit-fill-available;
+}
+
+/* .carousel-cell::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 0 0 #9ad18b;
+  transition: box-shadow 0.45s cubic-bezier(0.215, 0.61, 0.355, 1); 
+}
+*/
+
+.newsletter-article {
+  position: relative;
+}
+
+.newsletter-article h5 {
+  letter-spacing: 0.1rem;
+}
+
+.newsletter-form-validation-msg {
+  background-color: var(--primary-color);
+  color: var(--third-color);
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+  letter-spacing: 0.1rem;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slider-with-left-indent > .flickity-viewport > .flickity-slider {
+  margin-left: 5rem;
+}
+
+/* Styles for Parallax */
+
+/* when making parallax every section usually uses height: 100vh */
+.parallax_wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* perspective represents actually the point/distance from which we are looking at the elements
+  on the screen. So for example, if it's 300px it means that for the section parallax_wrapper
+  we have made all elements appear 300px closer to "us". Think in terms of moving on Z-axis, so 300px
+  in direction closer to "us". */
+  perspective: 300px;
+}
+
+.intro_screen {
+  height: 100vh;
+  background-color: teal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outro_screen {
+  height: 100vh;
+  background-color: tomato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* it is important to set the wrapping div to position relative
+and preserve-3d which prevents bugs that can be for example that 
+on some browsers previously set perspective of 300px won't be preserved and it might
+get changed to something else. */
+.parallax_group {
+  position: relative;
+  height: 100vh;
+  transform-style: preserve-3d;
+}
+
+.parallax_layer {
+  position: absolute;
+  /* inset is doing the same as top:0, right:0, left:0, bottom:0 when an element is set to position absoulute, so it streches/covers the whole element with content */
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* in order to achive the parallax effect, we have to move same layers on Z-axis and here for example,
+we move base layer farther from the persepctive that we set, but at the same time we scale it so it can
+be visible even though we set it far away on z-axis. So the farther in the background an element is set
+slower it will move, the closer it is, the faster will move. That is the essence of how parallax effect
+is achived. */
+.base_layer {
+  transform: translateZ(-300px) scale(2);
+}
+
+.mid_layer {
+  transform: translateZ(0);
+}
+
+.top_layer {
+  transform: translateZ(100px) scale(2);
+}
+/* and of course z-indexes have to be set so things are not overlapping in a wrong way */
+#intro {
+  z-index: 0;
+}
+
+#group-1 {
+  z-index: -1;
+}
+
+#group-1 > .base_layer {
+  background-color: crimson;
+}
+
+/* #group-2 {
+  z-index: -1;
 } */
+
+#group-2 > .mid_layer {
+  background-color: yellowgreen;
+}
+
+@media screen and (max-width: 960px) {
+  .container {
+    min-height: calc(55vh - 5rem);
+    padding: 0 !important;
+  }
+}
 
 @media screen and (min-width: 768px) {
   .sidebar {
